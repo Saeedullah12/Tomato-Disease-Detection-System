@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Disease Detection System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>-->
+    <script>
+        let isDark = window.localStorage.getItem('darkTheme')
+        console.log('theme: ', isDark, window.localStorage.getItem('darkTheme'))
+
+    </script>
+</head>
+<body>
+    <script>
+        const body = document.getElementsByTagName('body')[0]
+        if(isDark === true || isDark === 'true')
+            body.classList.add('dark-mode');
+    </script>
+    <div class="scroll-up-btn" >
+        <i class="fas fa-angle-up"></i>
+    </div>
+
+
+    <!--Navbar Section Start  -->
+
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Tomato<span>Care</span></a></div>
+            <ul class="menu">
+                <li><a href="#home" class="menu-btn active">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#predict" class="menu-btn active">Predict</a></li>
+                <li><a href="#diagnose" class="menu-btn">Diagnoses</a></li>
+                <li><a href="#team" class="menu-btn">Team</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
+                <li><a href="/user" class="menu-btn">Profile</a></li>
+
+                <li><button id="theme-toggler">
+                   
+                </btutton></li>
+            </ul>
+            
+      <!--Menu Section Start  -->
+
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!--Home Section Start  -->
+
+    <section class="home" id="home">
+        <div class="layer"></div>
+        <div class="max-width text-c">
+         <div class="home-content">
+            <h1 class="text-1">Welcome to <span>TomatoCare</span></h1>
+            <h2 class="text-2">Diagnose Tomato Diseases Instantly.</h2>
+            <a href="#predict" class="start-button">Start Prediction</a>
+            <div class="scroll-down">
+                <a href="#predict"><i class="fas fa-chevron-down shake"></i></a>
+            </div>
+        </div>
+
+
+    <!--Dropdown Section Start  -->
+
+        <div class="arrow-container">
+            <i class="fas fa-chevron-down shake"></i>
+        </div>
+    
+    </section>
+
+
+    <!--line between every Sections   -->
+
+    <div class="wire"></div>
+
+
+
+    <!-- about section start -->
+
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">About</h2>
+            <div class="about-content">
+                <div class="column left">
+                    <img src="/static/media/tomato1.jfif" alt="">
+                </div>
+                <div class="column right">
+                    <div class="text">Overview :</span></div>
+                    <p>The tomato (Solanum lycopersicum) is a versatile fruit from the nightshade family, commonly used as a vegetable. Native to South America, it is rich in vitamins, minerals, and antioxidants like lycopene. Cultivated worldwide, tomatoes vary in shape, size, and color. They are used fresh in salads and salsas, cooked in sauces and soups, and preserved. Tomatoes are praised for their health benefits, including improved heart health and reduced cancer risk.</p>
+                    <a href="https://www.gardenstead.com/all-about-tomatoes/">See More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--line between every Sections   -->
+
+        <div class="wire"></div>
+
+
+
+<!-- Prediction section start -->
+
+  <section class="predict" id="predict">
+    <div class="max-width">
+        <h2 class="title">Disease  Prediction</h2>
+
+      <div class="predict-content">
+        <div class="container">
+          <div class="button-container">
+            <input type="file" id="fileInput" style="display: none;" accept=".jpg, .jpeg, .png">
+            <label for="fileInput" class="button">Choose File</label>
+            <span id="fileName" style="margin-left: 10px;"></span>
+            <button class="button" id="predictButton" style="display:flex;align-items:center justify-content:center;" disabled>
+               Predict Disease 
+            </button>
+          </div>
+          <div id="imagePreview" style="text-align: center; margin-top: 20px;"></div>
+        </div>
+        <div class="footer-container" id="predCont" style="text-align:left">
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    <!--line between every Sections   -->
+
+        <div class="wire"></div>
+
+    
+ <!-- diagnose section start -->
+<section class="diagnose" id="diagnose">
+    <div class="max-width">
+        <h2 class="title">Diagnoses</h2>
+        <div class="diag-content">
+            <div class="card">
+                <div class="box">
+                    <img src="/static/media/TBS.JPG" alt="">
+                    <div class="text"> Tomato Bacterial Spot</div>
+                    <p>
+                       Treatment :<br>
+                        Use copper-based bactericides .<br>
+                        Plant resistant varieties .<br>
+                        Treat seeds with hot water or bleach solution before planting .<br>
+                        Practice crop rotation and avoid overhead irrigation .</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <img src="/static/media/TEB.JPG" alt="">
+                    <div class="text">Tomato Early Blight</div>
+                    <p>Treatment :<br>
+
+                        Apply fungicides (chlorothalonil, copper, mancozeb) . <br>
+                        Plant resistant varieties .<br>
+                        Rotate crops and avoid overhead watering .<br>
+                        Remove and destroy infected plant . </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <img src="/static/media/TH.JPG" alt="">
+                    <div class="text">Tomato Healthy</div>
+                    <p> Symptoms of Healthy Tomato :<br>
+                        Leaves: Vibrant green, no spots .<br>
+                        Stems: Thick and sturdy .<br>
+                        Growth: Steady and uniform .<br>
+                        Flowers: Bright and well-formed .<br>
+                        Fruit: Smooth, even-colored .<br>
+                        Pests: No visible damage .</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <img src="/static/media/TLB.JPG" alt="">
+                    <div class="text">Tomato Late Blight</div>
+                    <p>Treatment :<br>
+
+                        Apply fungicides like chlorothalonil .<br>
+                        Choose resistant tomato varieties .<br>
+                        Improve air circulation and avoid overhead watering .<br>
+                        Remove and destroy infected plants promptly .</p>
+                </div>
+            </div><div class="card">
+                <div class="box">
+                    <img src="/static/media/TLM.JPG" alt="">
+                    <div class="text">Tomato Leaf Mold</div>
+                    <p>Treatment :<br>
+
+                       Apply fungicides containing copper or chlorothalonil preventatively .<br>
+                       Improve air circulation and avoid overhead watering .<br>
+                       Prune and dispose of infected leaves to reduce disease spread .<br>
+                       </p>
+                </div>
+            </div><div class="card">
+                <div class="box">
+                    <img src="/static/media/TSL.JPG" alt="">
+                    <div class="text">Tomato Septoria Leaf</div>
+                    <p>Treatment :<br>
+
+                        Apply fungicides containing chlorothalonil or copper .<br>
+                        Prune and dispose of infected leaves to reduce disease spread .<br>
+                        Rotate crops to prevent buildup of pathogens in soil .<br>
+                        </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="box">
+                    <img src="/static/media/TSM.JPG" alt="">
+                    <div class="text">Tomato Spider Mites</div>
+                    <p>Treatment :<br>
+
+                        Use predatory mites (e.g., Phytoseiulus persimilis) to control spider mite populations .<br>
+                        Apply horticultural oils to suffocate mites and their eggs .<br>
+                        Use insecticidal soaps to kill mites on contact .<br>
+                        <br>
+                        </p>
+                </div>
+            
+            </div>
+           </div>
+        </div>
+    </div>
+</section> 
+
+
+    <!--line between every Sections   -->
+
+        <div class="wire"></div>
+
+<!-- Team Section start -->
+
+     <section class="teams" id="team">
+        <div class="max-width">
+            <h2 class="title">Our Team</h2>
+            <div class="team-cards">
+                <div class="card">
+                    <div class="box">
+                        <img src="/static/media/zakirsbdp.jpg" alt="">
+                        <div class="text">Mr Zakir Khan sir</div>
+                        <p>Supervisor</p>
+                        <div class="social-icons">
+                            <a href="https://web.facebook.com/zakirk2012"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com"><i class="fab fa-github"></i></a>
+                            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="/static/media/img1.PNG" alt="">
+                        <div class="text">Mr Saeed Ullah</div>
+                        <p>Team Member</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=100053982810229&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/Saeedullah12"><i class="fab fa-github"></i></a>
+                            <a href="https://twitter.com/Saeedullah001"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="/static/media/salmandp.jpg" alt="">
+                        <div class="text">Mr Salman</div>
+                        <p>Team Member</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com"><i class="fab fa-github"></i></a>
+                            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+        <!--line between every Sections   -->
+
+            <div class="wire"></div>
+
+    <!-- contact section start -->
+
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">Contact us</h2>
+            <div class="contact-content">
+                <div class="column left">
+                    <div class="text">Let's Work Together</div>
+                    <p>Learn about our team's passion for innovation and dedication to excellence. We strive to deliver impactful solutions tailored to your needs, driven by creativity and expertise.</</p>
+                    <div class="icons">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Name :</div>
+                                <div class="sub-title">Saeed Ullah</div>
+                                <div class="sub-title">Salman</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">Address :</div>
+                                <div class="sub-title">Battagram , KPK , Pakistan</div>
+                                <div class="sub-title">Battagram , KPK , Pakistan</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email :</div>
+                                <div class="sub-title">saeedullah1083@gmail.com</div>
+                                <div class="sub-title">salmanbrm2003@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column right">
+                    <div class="text">Message me</div>
+                    <form action="#">
+                        <div class="fields">
+                            <div class="field name">
+                                <input type="text" placeholder="Name" required>
+                            </div>
+                            <div class="field email">
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="field textarea">
+                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                        </div>
+                        <div class="button-area">
+                            <button type="submit">Send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer section start -->
+
+    <footer>
+        <span>Created By <a href="https://www.huscbtm.com/">HUSCB Students</a> | <span class="far fa-copyright"></span> 2024 TomatoCare. All rights reserved.</span>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
